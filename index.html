@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Karta Postaci BRP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+  <div class="character-sheet">
+    <h1>Karta Postaci</h1>
+    <button id="edit-mode-toggle">Włącz tryb edycji</button>
+    <button id="dark-theme-toggle">Włącz tryb ciemny</button>
+    <div class="basic-info">
+      <div class="character-image-section">
+        <div class="image-preview">
+          <img id="character-image" src="" alt="Obraz postaci">
+        </div>
+        <div style="display:flex; flex-direction: row; gap: 10px"><input type="text" id="image-url"
+            placeholder="Wklej link do obrazka">
+          <button id="load-image" class="material-symbols-outlined">upload</button>
+        </div>
+      </div>
+      <section class="personal-info">
+        <h2>Dane Osobowe</h2>
+        <div class="info-grid">
+          <div>
+            <label>Nazwa:</label>
+            <input type="text"  data-field="name">  
+            <div class="display-field" data-display="name"></div>
+          </div>
+          <div>
+            <label>Kultura:</label>
+            <input type="text"  data-field="culture">
+            <div class="display-field" data-display="culture"></div>
+          </div>
+          <div>
+            <label>Płeć:</label>
+            <input type="text"  data-field="gender">
+            <div class="display-field" data-display="gender"></div>
+          </div>
+          <div>
+            <label>Waga:</label>
+            <input type="text"  data-field="weight">
+            <div class="display-field" data-display="weight"></div>
+          </div>
+          <div>
+            <label>Zamożność:</label>
+            <input type="text"  data-field="wealth">
+            <div class="display-field" data-display="wealth"></div>
+          </div>
+          <div>
+            <label>Profesja:</label>
+            <input type="text"  data-field="profession">
+            <div class="display-field" data-display="profession"></div>
+          </div>
+          <div>
+            <label>Religia / Bogowie:</label>
+            <input type="text"  data-field="religion">
+            <div class="display-field" data-display="religion"></div>
+          </div>
+          <div>
+            <label>Wiek:</label>
+            <input type="text"  data-field="age">
+            <div class="display-field" data-display="age"></div>
+          </div>
+          <div style="grid-column: span 2;"><label>Dodatkowy opis:</label><textarea data-field="description"></textarea>
+            <div class="display-field" data-display="description"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <section class="stats-section">
+      <h2>Statystyki</h2>
+      <div class="stat-grid">
+        <div><label for="STR">STR</label><input type="number" id="STR" placeholder="STR"></div>
+        <div><label for="CON">CON</label><input type="number" id="CON" placeholder="CON"></div>
+        <div><label for="SIZ">SIZ</label><input type="number" id="SIZ" placeholder="SIZ"></div>
+        <div><label for="INT">INT</label><input type="number" id="INT" placeholder="INT"></div>
+        <div><label for="POW">POW</label><input type="number" id="POW" placeholder="POW"></div>
+        <div><label for="DEX">DEX</label><input type="number" id="DEX" placeholder="DEX"></div>
+        <div><label for="APP">APP</label><input type="number" id="APP" placeholder="APP"></div>
+        <div><label for="EDU">EDU</label><input type="number" id="EDU" placeholder="EDU"></div>
+      </div>
+      <button id="roll-stats">Losuj statystyki</button>
+    </section>
+
+    <div class="derived-and-rolls">
+      <section class="derived-section">
+        <h2>Wartości Pochodne</h2>
+
+        <p><strong>HP:</strong> <span id="hp">–</span>
+        <div class="hp-controls">
+          <button id="hp-minus">−</button>
+          <button id="hp-plus">+</button>
+        </div>
+        </p>
+
+        <p><strong>Damage Points:</strong> <span id="db">–</span></p>
+        <p><strong>Power Points:</strong> <span id="pp">–</span></p>
+        <p><strong>Movement Rate:</strong> <span id="mov">10</span></p>
+      </section>
+
+      <section class="extended-rolls">
+        <h2>Rzuty i Modyfikatory</h2>
+        <p><strong>Effort Roll:</strong> <span id="effort-roll">–</span>%</p>
+        <p><strong>Stamina Roll:</strong> <span id="stamina-roll">–</span>%</p>
+        <p><strong>Damage Modifier:</strong> <span id="damage-mod">–</span></p>
+        <p><strong>Idea Roll:</strong> <span id="idea-roll">–</span>%</p>
+        <p><strong>C Luck Roll:</strong> <span id="luck-roll">–</span>%</p>
+        <p><strong>Agility Roll:</strong> <span id="agility-roll">–</span>%</p>
+        <p><strong>Charm Roll:</strong> <span id="charm-roll">–</span>%</p>
+        <p><strong>Knowledge Roll:</strong> <span id="knowledge-roll">–</span>%</p>
+      </section>
+    </div>
+
+
+
+    <section class="skills-section">
+      <h2>Umiejętności</h2>
+      <div class="input-group">
+        <input type="text" placeholder="Nazwa umiejętności">
+        <input type="number" placeholder="%">
+        <input type="text" placeholder="Specyfikacja profesji(Jeżeli wymagana)">
+        <button class="add-btn">Dodaj</button>
+      </div>
+      <ul class="skills-list"></ul>
+    </section>
+
+    <section class="equipment-section">
+      <div class="weapons-container">
+        <h2>Bronie</h2>
+        <div class="input-group">
+          <input type="text" placeholder="Nazwa broni">
+          <input type="number" placeholder="%">
+          <input type="text" placeholder="Typ (np. heavy, energy, melee, missile)">
+          <button class="add-btn">Dodaj</button>
+        </div>
+        <ul class="weapons-list"></ul>
+      </div>
+
+      <div class="armor-container">
+        <h2>Pancerze</h2>
+        <div class="input-group">
+          <input type="text" placeholder="Typ pancerza">
+          <input type="number" placeholder="%">
+          <button class="add-btn">Dodaj</button>
+        </div>
+        <ul class="armor-list"></ul>
+      </div>
+    </section>
+
+    <section class="spells-section">
+      <h2>Zaklęcia</h2>
+      <div class="input-group">
+        <input type="text" placeholder="Nazwa zaklęcia">
+        <input type="number" placeholder="%">
+        <button class="add-btn">Dodaj</button>
+      </div>
+      <ul class="spells-list"></ul>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.basic-info {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 10rem;
+  justify-content: center;
+}
+
+.character-image-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#image-url {
+  width: 70%;
+  padding: 8px;
+  font-size: 0.75rem;
+  margin-bottom: 10px;
+}
+
+#load-image {
+  background-color: #555;
+  color: white;
+  border: none;
+  height: 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.image-preview img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  margin-top: 10px;
+  border: 2px solid #ccc;
+}
+
+.character-sheet {
+  max-width: 950px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.input-group input {
+  padding: 8px;
+  flex: 1;
+}
+
+.input-group input[type="number"] {
+  max-width: 80px;
+}
+
+.add-btn {
+  padding: 8px 12px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #005fa3;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  background: #eaeaea;
+  margin: 5px 0;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+.skills-section,
+.spells-section {
+  margin-bottom: 30px;
+}
+
+.equipment-section {
+  display: flex;
+  gap: 20px;
+}
+
+.weapons-container {
+  flex: 3;
+}
+
+.armor-container {
+  flex: 2;
+}
+
+.derived-section p {
+  font-size: 1.1em;
+  margin: 5px 0;
+}
+
+#toggle-sections {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.extended-rolls p {
+  font-size: 1.05em;
+  margin: 4px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+#edit-mode-toggle {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: #888;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.edit-mode .input-group {
+  display: none;
+}
+
+li .delete-btn {
+  margin-left: 10px;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  display: none;
+}
+
+.edit-mode li .delete-btn {
+  display: inline;
+}
+
+#dark-theme-toggle {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: #222;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-theme .character-sheet {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+body.dark-theme input,
+body.dark-theme button,
+body.dark-theme ul li {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+body.dark-theme .add-btn,
+body.dark-theme #toggle-sections,
+body.dark-theme #edit-mode-toggle,
+body.dark-theme #dark-theme-toggle {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark-theme .add-btn:hover {
+  background-color: #666;
+}
+
+#roll-stats {
+  margin: 10px 0 20px;
+  padding: 8px 12px;
+  background-color: #006400;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#roll-stats:hover {
+  background-color: #228B22;
+}
+
+.personal-info {
+  margin-bottom: 30px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.info-grid label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.info-grid input,
+.info-grid textarea {
+  width: 100%;
+  height: 2rem;
+  padding: 6px;
+  font-size: 0.9rem;
+}
+
+/* Fix info-grid edit/view mode toggling */
+.edit-mode .info-grid input,
+.edit-mode .info-grid textarea {
+  display: block;
+}
+
+.edit-mode .info-grid div[data-display] {
+  display: none;
+}
+
+body:not(.edit-mode) .info-grid input,
+body:not(.edit-mode) .info-grid textarea {
+  display: none;
+}
+
+body:not(.edit-mode) .info-grid div[data-display] {
+  display: block;
+}
+
+.derived-and-rolls {
+  display: flex;
+  gap: 10%;
+  justify-content: center
+}
+
+.extended-rolls {
+  text-align: center
+}
+
+.derived-section {
+  text-align: center
+}
